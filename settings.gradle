@@ -1,2 +1,2 @@
 rootProject.name = 'projekt'
-include 'festival-backend', 'festival-frontend'
+include 'festival-backend'
