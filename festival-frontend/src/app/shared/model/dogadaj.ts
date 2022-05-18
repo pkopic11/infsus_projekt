@@ -9,6 +9,4 @@ export interface Dogadaj {
   brojUlaznica: number;
   datumPocetka: any;
   mjesto: Mjesto;
-  izvodaci: Izvodac;
-  organizatori: Menadzer;
 }

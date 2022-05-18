@@ -1,21 +1,22 @@
 package hr.fer.infosus.festivalbackend.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Mjesto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column
     private String naziv;
 
-    @Column
     private Integer postanskiBroj;
 }
