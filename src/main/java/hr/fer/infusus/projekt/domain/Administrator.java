@@ -3,7 +3,20 @@ package hr.fer.infusus.projekt.domain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = true)
+import javax.persistence.*;
+
 @Data
-public class Administrator extends Korisnik{
+@Entity
+public class Administrator{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    @Column
+    private String email;
+
+    @Column
+    private String password;
 }

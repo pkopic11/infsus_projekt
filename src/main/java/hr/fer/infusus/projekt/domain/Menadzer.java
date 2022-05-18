@@ -3,11 +3,16 @@ package hr.fer.infusus.projekt.domain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
-public class Menadzer extends Korisnik{
+@Entity
+public class Menadzer{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
     @Column
     private String ime;

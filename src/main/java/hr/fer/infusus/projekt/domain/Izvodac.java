@@ -2,13 +2,11 @@ package hr.fer.infusus.projekt.domain;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Set;
 
 @Data
+@Entity
 public class Izvodac {
 
     @Id
@@ -26,5 +24,6 @@ public class Izvodac {
     private String umjetnickoIme;
 
     @Column
+    @ManyToMany
     private Set<Dogadaj> dogadaji;
 }
