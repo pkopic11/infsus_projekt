@@ -40,4 +40,6 @@ public class MjestoServiceTest {
 
         verify(mjestoRepository, atLeastOnce()).findById(mjesto.getId());
     }
+
+
 }

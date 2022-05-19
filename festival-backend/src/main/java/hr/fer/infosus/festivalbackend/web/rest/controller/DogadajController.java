@@ -43,4 +43,8 @@ public class DogadajController {
         dogadajService.delete(id);
     }
 
+    @PutMapping
+    public void update(@RequestBody Dogadaj dogadaj) throws Exception {
+        dogadajService.update(dogadaj);
+    }
 }

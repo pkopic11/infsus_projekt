@@ -2,6 +2,7 @@ package hr.fer.infosus.festivalbackend.service;
 
 import hr.fer.infosus.festivalbackend.domain.Dogadaj;
 import hr.fer.infosus.festivalbackend.repository.DogadajRepository;
+import hr.fer.infosus.festivalbackend.repository.MjestoRepository;
 import hr.fer.infosus.festivalbackend.web.rest.dto.DogadajDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 public class DogadajService {
 
     DogadajRepository dogadajRepository;
+    MjestoRepository mjestoRepository;
     ModelMapper modelMapper;
 
     @Transactional(readOnly = true)
@@ -43,4 +45,13 @@ public class DogadajService {
         dogadajRepository.deleteById(id);
     }
 
+    @Transactional
+    public void update(Dogadaj editDogadaj) throws Exception {
+        var dogadaj = dogadajRepository.findById(editDogadaj.getId()).orElseThrow(() -> new Exception());
+        var mjesto = mjestoRepository.findById(dogadaj.getMjesto().getId()).orElseThrow(() -> new Exception());
+
+        modelMapper.map(editDogadaj, dogadaj);
+        dogadaj.setMjesto(mjesto);
+        dogadajRepository.save(dogadaj);
+    }
 }

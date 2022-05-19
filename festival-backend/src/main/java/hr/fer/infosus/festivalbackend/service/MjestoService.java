@@ -31,7 +31,7 @@ public class MjestoService {
     public MjestoDto findById(Long id){
         return modelMapper.map(mjestoRepository.findById(id).get(), MjestoDto.class);
     }
-
+/*
     @Transactional
     public void save(MjestoDto mjestoDto){
         mjestoRepository.save(modelMapper.map(mjestoDto, Mjesto.class));
@@ -40,5 +40,5 @@ public class MjestoService {
     @Transactional
     public void delete(Long id){
         mjestoRepository.deleteById(id);
-    }
+    }*/
 }

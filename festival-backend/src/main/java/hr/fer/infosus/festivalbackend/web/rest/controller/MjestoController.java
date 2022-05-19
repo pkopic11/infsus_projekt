@@ -18,11 +18,13 @@ public class MjestoController {
 
     MjestoService mjestoService;
 
+/*
 
     @PostMapping
     public void save(@RequestBody MjestoDto mjestoDto){
         mjestoService.save(mjestoDto);
     }
+*/
 
     @GetMapping("/all")
     public List<MjestoDto> findAll(){

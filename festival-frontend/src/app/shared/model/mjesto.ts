@@ -1,5 +1,5 @@
 export interface Mjesto {
-  name: string;
+  naziv: string;
   id: number;
   postanskiBroj: number;
 }

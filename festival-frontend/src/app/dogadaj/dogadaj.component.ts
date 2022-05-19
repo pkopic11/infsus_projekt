@@ -8,7 +8,7 @@ import {NavigationExtras, Router} from "@angular/router";
   templateUrl: './dogadaj.component.html',
   styleUrls: ['./dogadaj.component.scss']
 })
-export class DogadajComponent {
+export class DogadajComponent implements OnInit{
 
   dogadaji: Dogadaj[] = [];
 
@@ -18,8 +18,7 @@ export class DogadajComponent {
 
   }
 
-
-  getDogadaj(){
+  ngOnInit() {
     this.dogadajService.findAll().subscribe(
       (resp) => {
         console.log(resp);

@@ -8,7 +8,7 @@ import {Dogadaj} from "../../model/dogadaj";
 })
 export class DogadajService {
 
-  baseUrl = 'api/v1/dogadaji';
+  baseUrl = 'api/v1/dogadaj';
 
   constructor(private http: HttpClient) { }
 
