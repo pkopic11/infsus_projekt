@@ -4,16 +4,73 @@
    </div>
 </section>
 
-<div class="album py-5 bg-light">
+<div class="album py-5">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
+        <div class="card box-shadow">
           <div class="card-body">
+
+
+              <div class="container">
+                <div class="row">
+                  <div class="mt-3">
+                    <div class="shadow-sm bg-white">
+                      <form class="m-auto p-md-3" name="form">
+
+                        <div class="input-group">
+                          <div class="form-group col-md-6 col-sm-12">
+                            <label for="text">Naziv događaja</label>
+                            <input class="form-control" formControlName="text" id="text" required type="text">
+                          </div>
+
+                          <div class="form-group col-md-6 col-sm-12">
+                            <label for="expression">Trajanje događaja</label>
+                            <input class="form-control" formControlName="expression" id="expression" required type="text">
+                          </div>
+
+                          <!--<div class="form-group col-md-6 col-sm-12">
+                            <label for="dutch">Dutch</label>
+                            <textarea class="form-control" formControlName="dutch" id="dutch" maxlength="4096" required
+                                      rows="20"></textarea>
+                          </div>
+
+                          <div class="form-group col-md-6 col-sm-12">
+                            <label for="french">French</label>
+                            <textarea class="form-control" formControlName="french" id="french" maxlength="4096" required
+                                      rows="20"></textarea>
+                          </div>-->
+
+                          <div class="form-group col-md-6 col-sm-12">
+                            <label for="expression">Pocetak</label>
+                            <input class="form-control" type="date" id="birthday" name="birthday">
+                          </div>
+
+                          <div class="form-group col-md-6 col-sm-12">
+                            <label for="expression">Mjesto</label>
+                            <select  class="form-control" formControlName="action" required>
+                              <option disabled value="">Choose the action</option>
+                            </select>
+                          </div>
+
+
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+
+                          <button class="btn btn-success col-12 col-md-3" type="submit">Kreiraj</button>
+                          <button class="btn btn-secondary col-12 col-md-3" type="submit" routerLink="/">Odustani</button>
+                        </div>
+
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
 
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
