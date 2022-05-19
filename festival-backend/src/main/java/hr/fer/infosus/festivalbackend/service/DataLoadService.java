@@ -1,10 +1,16 @@
 package hr.fer.infosus.festivalbackend.service;
 
+import hr.fer.infosus.festivalbackend.domain.Administrator;
+import hr.fer.infosus.festivalbackend.domain.Mjesto;
+import hr.fer.infosus.festivalbackend.domain.VanjskiKorisnik;
 import hr.fer.infosus.festivalbackend.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -41,13 +47,19 @@ public class DataLoadService implements ApplicationRunner {
     }
 
     private void generirajAdministratore() {
-
-
+        administratorRepository.saveAll(List.of(
+                Administrator.builder().email("admin1@email.com" ).password("admin").build(),
+                Administrator.builder().email("admin2@email.com" ).password("admin").build(),
+                Administrator.builder().email("admin3@email.com" ).password("admin").build()
+        ));
     }
 
     private void generirajKorisnike() {
-
-
+        vanjskiKorisnikRepository.saveAll(List.of(
+                VanjskiKorisnik.builder().ime("ime1").prezime("prezime1").build(),
+                VanjskiKorisnik.builder().ime("ime2").prezime("prezime2").build(),
+                VanjskiKorisnik.builder().ime("ime3").prezime("prezime3").build()
+        ));
     }
 
     private void generirajIzdavackeKuce() {
@@ -56,8 +68,11 @@ public class DataLoadService implements ApplicationRunner {
     }
 
     private void generirajMjesta() {
-
-
+        mjestoRepository.saveAll(List.of(
+            Mjesto.builder().naziv("Zagreb").postanskiBroj(10000).build(),
+            Mjesto.builder().naziv("Osijek").postanskiBroj(31000).build(),
+            Mjesto.builder().naziv("Split").postanskiBroj(21000).build()
+        ));
     }
 
     private void generirajIzvodace() {

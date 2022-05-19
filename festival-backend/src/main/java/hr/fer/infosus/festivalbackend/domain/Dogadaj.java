@@ -1,8 +1,6 @@
 package hr.fer.infosus.festivalbackend.domain;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,6 +9,7 @@ import java.util.Set;
 @Data
 @Entity
 @Builder
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class Dogadaj {
 
