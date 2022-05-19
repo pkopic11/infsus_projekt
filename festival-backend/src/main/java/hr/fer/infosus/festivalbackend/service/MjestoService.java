@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,8 +28,8 @@ public class MjestoService {
     }
 
     @Transactional(readOnly = true)
-    public Optional<Mjesto> findById(Long id){
-        return mjestoRepository.findById(id);
+    public MjestoDto findById(Long id){
+        return modelMapper.map(mjestoRepository.findById(id).get(), MjestoDto.class);
     }
 
     @Transactional
