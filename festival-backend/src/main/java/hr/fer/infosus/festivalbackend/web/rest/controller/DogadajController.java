@@ -21,22 +21,21 @@ import java.util.stream.Collectors;
 public class DogadajController {
 
     DogadajService dogadajService;
-    ModelMapper modelMapper;
+
 
     @GetMapping("/all")
     public List<DogadajDto> findAll(){
-        return dogadajService.findAll().stream().map(dogadaj -> modelMapper.map(dogadaj, DogadajDto.class))
-                .collect(Collectors.toList());
+        return dogadajService.findAll();
     }
 
     @GetMapping("/{id}")
     public DogadajDto findById(@PathVariable Long id){
-        return modelMapper.map(dogadajService.findById(id), DogadajDto.class);
+        return dogadajService.findById(id);
     }
 
     @PostMapping
     public void save(@Valid @RequestBody DogadajDto dogadajDto){
-        dogadajService.save(modelMapper.map(dogadajDto, Dogadaj.class));
+        dogadajService.save(dogadajDto);
     }
 
     @DeleteMapping("/{id}")
