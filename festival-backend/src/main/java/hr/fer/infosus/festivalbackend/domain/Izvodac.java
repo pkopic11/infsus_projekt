@@ -1,12 +1,16 @@
 package hr.fer.infosus.festivalbackend.domain;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Data
 @Entity
+@Builder
+@RequiredArgsConstructor
 public class Izvodac {
 
     @Id

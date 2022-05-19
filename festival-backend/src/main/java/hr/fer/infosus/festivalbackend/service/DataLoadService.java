@@ -1,8 +1,5 @@
 package hr.fer.infosus.festivalbackend.service;
 
-import hr.fer.infosus.festivalbackend.domain.IzdavackaKuca;
-import hr.fer.infosus.festivalbackend.domain.Mjesto;
-import hr.fer.infosus.festivalbackend.domain.VanjskiKorisnik;
 import hr.fer.infosus.festivalbackend.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;

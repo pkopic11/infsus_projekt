@@ -1,8 +1,6 @@
 package hr.fer.infosus.festivalbackend.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,6 +8,8 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@RequiredArgsConstructor
 public class Mjesto {
 
     @Id

@@ -1,11 +1,16 @@
 package hr.fer.infosus.festivalbackend.domain;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @Entity
+@Builder
+@RequiredArgsConstructor
 public class Administrator{
 
     @Id
