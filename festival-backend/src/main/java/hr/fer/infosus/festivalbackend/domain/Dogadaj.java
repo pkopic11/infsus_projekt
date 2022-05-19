@@ -35,10 +35,10 @@ public class Dogadaj {
     private Mjesto mjesto;
 
     @Column
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Set<Izvodac> izvodaci;
 
     @Column
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Menadzer> organizatori;
 }

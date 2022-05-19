@@ -30,6 +30,6 @@ public class Izvodac {
     private String umjetnickoIme;
 
     @Column
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Set<Dogadaj> dogadaji;
 }
