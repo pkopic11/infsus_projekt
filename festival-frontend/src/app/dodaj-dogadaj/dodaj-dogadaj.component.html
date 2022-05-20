@@ -46,20 +46,17 @@
 
                           <div class="form-group col-md-6 col-sm-12">
                             <label>Mjesto</label>
-                            <select  class="form-control" ngModel name="mjesto" #mjesto="ngModel" required>
-                              <option disabled value="">Odaberi mjesto</option>
-                              <option *ngFor="let mjesto in mjesta" [ngValue]="mjesto">{{mjesto.naziv}}</option>
+                            <select id='mjesta' name='mjesta' class="form-control" [(ngModel)]="odabranoMjesto">
+                              <option *ngFor="let item of mjesta" [value]="item">
+                                {{item.naziv}}
+                              </option>
                             </select>
                           </div>
-
-
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-
                           <button class="btn btn-success col-12 col-md-3" type="submit">Kreiraj</button>
                           <button class="btn btn-secondary col-12 col-md-3" type="submit" routerLink="/">Odustani</button>
                         </div>
-
                       </form>
                     </div>
                   </div>

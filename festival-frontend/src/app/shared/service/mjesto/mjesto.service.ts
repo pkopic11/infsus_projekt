@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Mjesto} from "../../model/mjesto";
@@ -7,7 +7,7 @@ import {Mjesto} from "../../model/mjesto";
   providedIn: 'root'
 })
 export class MjestoService {
-  baseUrl = 'api/v1/mjesto';
+  baseUrl = '/api/v1/mjesto';
 
   constructor(private http: HttpClient) { }
 

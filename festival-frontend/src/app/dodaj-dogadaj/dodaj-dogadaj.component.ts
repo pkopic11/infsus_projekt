@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dogadaj} from "../shared/model/dogadaj";
 import {Mjesto} from "../shared/model/mjesto";
 import {DogadajService} from "../shared/service/dogadaji/dogadaj.service";
@@ -16,10 +16,17 @@ export class DodajDogadajComponent implements OnInit {
 
   mjesta!: Mjesto[];
   dogadaji!: Dogadaj;
+  odabranoMjesto: any;
 
   constructor(private dogadajService: DogadajService,
               private mjestoService: MjestoService,
-              private router: Router) { }
+              private router: Router) {
+    this.mjestoService.findAll().subscribe(
+      (value) => {
+        this.mjesta = value;
+      }
+    )
+  }
 
   ngOnInit(): void {
     this.mjestoService.findAll().subscribe(
