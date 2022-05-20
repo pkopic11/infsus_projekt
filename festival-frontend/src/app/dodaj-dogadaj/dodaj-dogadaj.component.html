@@ -47,7 +47,7 @@
                           <div class="form-group col-md-6 col-sm-12">
                             <label>Mjesto</label>
                             <select id='mjesta' name='mjesta' class="form-control" [(ngModel)]="odabranoMjesto">
-                              <option *ngFor="let item of mjesta" [value]="item">
+                              <option *ngFor="let item of mjesta" [ngValue]="item" >
                                 {{item.naziv}}
                               </option>
                             </select>

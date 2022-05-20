@@ -16,7 +16,7 @@ export class DodajDogadajComponent implements OnInit {
 
   mjesta!: Mjesto[];
   dogadaji!: Dogadaj;
-  odabranoMjesto: any;
+  odabranoMjesto!: Mjesto;
 
   constructor(private dogadajService: DogadajService,
               private mjestoService: MjestoService,
@@ -29,15 +29,12 @@ export class DodajDogadajComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mjestoService.findAll().subscribe(
-      (value) => {
-        this.mjesta = value;
-      }
-    )
   }
 
   addDogadaj(registerForm: NgForm){
-    this.dogadajService.addDogadaj(registerForm.value).subscribe(
+    let d = registerForm.value
+    d.mjesto = this.odabranoMjesto;
+    this.dogadajService.addDogadaj(d).subscribe(
       (response) => {
         registerForm.reset();
         this.router.navigate(['']);
