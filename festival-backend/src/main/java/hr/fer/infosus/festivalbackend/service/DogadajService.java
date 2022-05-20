@@ -45,12 +45,20 @@ public class DogadajService {
     }
 
     @Transactional
-    public void update(Dogadaj editDogadaj) throws Exception {
-        var dogadaj = dogadajRepository.findById(editDogadaj.getId()).orElseThrow(() -> new Exception());
-        var mjesto = mjestoRepository.findById(dogadaj.getMjesto().getId()).orElseThrow(() -> new Exception());
+    public void update(DogadajDto editDogadaj) throws Exception {
+        Dogadaj d = dogadajRepository.getById(editDogadaj.getId());
+        if(editDogadaj.getDatumPocetka() != null)
+            d.setDatumPocetka(editDogadaj.getDatumPocetka());
 
-        modelMapper.map(editDogadaj, dogadaj);
-        dogadaj.setMjesto(mjesto);
-        dogadajRepository.save(dogadaj);
+        if(editDogadaj.getMjesto() != null)
+            d.setMjesto(editDogadaj.getMjesto());
+
+        if(editDogadaj.getNaziv() != null)
+            d.setNaziv(editDogadaj.getNaziv());
+
+        if(editDogadaj.getTrajanjeDani() != null)
+            d.setTrajanjeDani(editDogadaj.getTrajanjeDani());
+
+        dogadajRepository.save(d);
     }
 }

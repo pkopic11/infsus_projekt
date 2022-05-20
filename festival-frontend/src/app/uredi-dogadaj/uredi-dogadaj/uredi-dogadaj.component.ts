@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Mjesto} from "../../shared/model/mjesto";
 import {Dogadaj} from "../../shared/model/dogadaj";
@@ -15,6 +15,7 @@ export class UrediDogadajComponent implements OnInit {
 
   form!: FormGroup;
   mjesta!: Mjesto[];
+  odabranoMjesto!: Mjesto;
 
   constructor(private dogadajService: DogadajService,
               private mjestoService: MjestoService,
@@ -48,13 +49,14 @@ export class UrediDogadajComponent implements OnInit {
           this.form.controls['trajanjeDani'].setValue(result.trajanjeDani);
           this.form.controls['brojUlaznica'].setValue(result.brojUlaznica);
           this.form.controls['datumPocetka'].setValue(result.datumPocetka);
-          this.form.controls['mjesto'].setValue(result.mjesto);
+          this.form.controls['mjesto'].setValue(this.odabranoMjesto);
         });
       }
     });
   }
 
   updateDogadaj(){
+    console.log(this.form.getRawValue())
     this.dogadajService.updateDogadaj(this.form.getRawValue()).subscribe();
     this.form.reset();
     this.router.navigate(['']);

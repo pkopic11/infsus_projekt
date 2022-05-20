@@ -35,12 +35,12 @@
 
                       <div class="form-group col-md-6 col-sm-12">
                         <label>Mjesto</label>
-                        <select  class="form-control" formControlName="mjesto" required>
-                          <option disabled value="">Odaberi mjesto</option>
-                          <option *ngFor="let mjesto in mjesta" [ngValue]="mjesto">{{mjesto.naziv}}</option>
+                        <select id='mjesta' name='mjesta' class="form-control" formControlName="mjesto">
+                          <option *ngFor="let item of mjesta" [ngValue]="item" >
+                            {{item.naziv}}
+                          </option>
                         </select>
                       </div>
-
 
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
