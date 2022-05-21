@@ -1,48 +1,40 @@
-<!--
 <header>
-  <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
-        </div>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <section class="jumbotron text-center bg-light">
+      <div class="container">
+        <h1 class="jumbotron-heading">Festivali</h1>
       </div>
+    </section>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item mr-3">
+          <a routerLink="dodaj" class="nav-link">Dodaj događaj</a>
+        </li>
+        <li class="nav-item dropdown mr-3">
+          <select  class="nav-link dropdown-toggle" (ngModelChange)="searchDogadajByYear(key.value)" #key='ngModel' ngModel name="key"  >
+            <option value="" selected disabled hidden>Godine</option>
+            <option  *ngFor="let item of dogadaji" [ngValue]="item.datumPocetka" >
+              {{item.datumPocetka | date: "y"}}
+            </option>
+            <option value="" (click)="getDogadaj()">Sve godine</option>
+          </select>
+        </li>
+        <li class="nav-item mr-3">
+          <form class="form-inline my-2 my-lg-0">
+            <input (ngModelChange)="searchDogadaj(key.value)" #key='ngModel' ngModel name="key" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          </form>
+        </li>
+      </ul>
+
     </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark box-shadow">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        <strong>Album</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
+  </nav>
+
 </header>
--->
 
-<section class="jumbotron text-center">
-  <div class="container">
-    <h1 class="jumbotron-heading">Festivali</h1>
-    <p>
-      <a routerLink="dodaj" class="btn btn-primary my-2">Dodaj događaj</a>
-    </p>
-    <input type="text" (ngModelChange)="searchDogadaj(key.value)" #key='ngModel' ngModel name="key" placeholder="Pretraži događaje...">
-  </div>
-</section>
 
-<div class="album py-5 bg-light">
+<div class="album py-5 ">
   <div class="container">
     <div class="row">
       <div *ngFor="let dogadaj of dogadaji" class="col-md-4">
@@ -52,7 +44,7 @@
               <h3>{{dogadaj.naziv}}</h3>
 
             </div>
-            <small class="text-muted">{{dogadaj.datumPocetka}}</small>
+            <small class="text-muted">{{dogadaj.datumPocetka | date : "dd.MM.y" }}</small>
             <p class="card-text">Mjesto: {{dogadaj.mjesto.naziv}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">

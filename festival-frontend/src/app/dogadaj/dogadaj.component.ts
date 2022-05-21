@@ -13,12 +13,15 @@ export class DogadajComponent implements OnInit{
 
   constructor(
     private dogadajService: DogadajService) {
+    this.getDogadaj()
   }
 
   ngOnInit() {
+  }
+
+  getDogadaj(){
     this.dogadajService.findAll().subscribe(
       (resp) => {
-        console.log(resp);
         this.dogadaji = resp;
       },
       (err) => {
@@ -43,17 +46,24 @@ export class DogadajComponent implements OnInit{
     }
     this.dogadaji = results;
     if(results.length === 0 || !key){
-      this.dogadajService.findAll().subscribe(
-        (resp) => {
-          console.log(resp);
-          this.dogadaji = resp;
-        },
-        (err) => {
-          console.log(err);
-        }
-      )
+      this.getDogadaj();
     }
   }
+
+  searchDogadajByYear(key: string){
+    console.log(key)
+    const results: Dogadaj[] = [];
+    for(const event of this.dogadaji){
+      if(event.datumPocetka.indexOf(key) != -1){
+        results.push(event);
+      }
+    }
+    this.dogadaji = results;
+    if(results.length === 0 || !key){
+      this.getDogadaj();
+    }
+  }
+
 
 
 }
