@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dogadaj} from "../shared/model/dogadaj";
 import {DogadajService} from "../shared/service/dogadaji/dogadaj.service";
-import {NavigationExtras, Router} from "@angular/router";
 
 @Component({
   selector: 'app-dogadaj',
@@ -13,9 +12,7 @@ export class DogadajComponent implements OnInit{
   dogadaji: Dogadaj[] = [];
 
   constructor(
-    private dogadajService: DogadajService,
-    private router: Router) {
-
+    private dogadajService: DogadajService) {
   }
 
   ngOnInit() {

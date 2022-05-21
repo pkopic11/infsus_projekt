@@ -1,6 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DodajDogadajComponent } from './dodaj-dogadaj.component';
+import {DodajDogadajComponent} from './dodaj-dogadaj.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {RouterTestingModule} from "@angular/router/testing";
+import {FormsModule} from "@angular/forms";
 
 describe('DodajDogadajComponent', () => {
   let component: DodajDogadajComponent;
@@ -8,7 +11,8 @@ describe('DodajDogadajComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DodajDogadajComponent ]
+      declarations: [ DodajDogadajComponent ],
+      imports: [HttpClientTestingModule, RouterTestingModule, FormsModule]
     })
     .compileComponents();
   });

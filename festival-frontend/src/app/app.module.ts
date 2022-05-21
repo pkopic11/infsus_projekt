@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { DogadajComponent } from './dogadaj/dogadaj.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {DogadajComponent} from './dogadaj/dogadaj.component';
 import {HttpClientModule} from "@angular/common/http";
-import { DodajDogadajComponent } from './dodaj-dogadaj/dodaj-dogadaj.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { UrediDogadajComponent } from './uredi-dogadaj/uredi-dogadaj/uredi-dogadaj.component';
+import {DodajDogadajComponent} from './dodaj-dogadaj/dodaj-dogadaj.component';
+import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {UrediDogadajComponent} from './uredi-dogadaj/uredi-dogadaj/uredi-dogadaj.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { UrediDogadajComponent } from './uredi-dogadaj/uredi-dogadaj/uredi-dogad
         FormsModule,
         ReactiveFormsModule
     ],
-  providers: [],
+  providers: [HttpClientModule, FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
