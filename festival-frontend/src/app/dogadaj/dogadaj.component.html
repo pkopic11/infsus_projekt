@@ -39,6 +39,7 @@
     <p>
       <a routerLink="dodaj" class="btn btn-primary my-2">Dodaj događaj</a>
     </p>
+    <input type="text" (ngModelChange)="searchDogadaj(key.value)" #key='ngModel' ngModel name="key" placeholder="Pretraži događaje...">
   </div>
 </section>
 
@@ -58,7 +59,7 @@
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="uredi/{{dogadaj.id}}">Uredi</button>
               </div>
-              <button type="button" class="btn btn-sm btn-outline-danger" (click)="deleteDogadaji(dogadaj)">Obrisi</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" (click)="deleteDogadaji(dogadaj)">Obriši</button>
             </div>
           </div>
         </div>

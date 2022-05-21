@@ -36,5 +36,27 @@ export class DogadajComponent implements OnInit{
     this.dogadajService.deleteDogadaj(dogadaj.id).subscribe();
   }
 
+  searchDogadaj(key: string){
+    const results: Dogadaj[] = [];
+    for(const event of this.dogadaji){
+      if(event.naziv.toLowerCase().indexOf(key.toLowerCase()) != -1
+      || event.mjesto.naziv.toLowerCase().indexOf(key.toLowerCase()) != -1){
+        results.push(event);
+      }
+    }
+    this.dogadaji = results;
+    if(results.length === 0 || !key){
+      this.dogadajService.findAll().subscribe(
+        (resp) => {
+          console.log(resp);
+          this.dogadaji = resp;
+        },
+        (err) => {
+          console.log(err);
+        }
+      )
+    }
+  }
+
 
 }
