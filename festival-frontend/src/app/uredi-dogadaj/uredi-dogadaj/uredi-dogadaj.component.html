@@ -20,22 +20,31 @@
                     <div class="input-group">
                       <div class="form-group col-md-6 col-sm-12">
                         <label for="text">Naziv događaja</label>
-                        <input class="form-control" formControlName="naziv" id="text" required type="text">
+                        <input class="form-control" formControlName="naziv" id="text" required minlength="5" pattern="^[A-Za-z0-9_ ]*$" type="text">
+                        <div class="text-danger" *ngIf="form.get('naziv')!.touched && !form.get('naziv')!.valid">
+                          <div *ngIf="form.get('naziv')!.errors?.['required']">Naziv je obavezan!</div>
+                          <div *ngIf="form.get('naziv')!.errors?.['minlength']">Naziv mora imati barem 5 znakova!</div>
+                          <div *ngIf="form.get('naziv')!.errors?.['pattern']">Naziv ne smije imati simbole</div>
+                        </div>
                       </div>
 
                       <div class="form-group col-md-6 col-sm-12">
-                        <label for="expression">Trajanje događaja</label>
-                        <input class="form-control" formControlName="trajanjeDani" id="expression" required type="text">
+                        <label for="trajanje">Trajanje događaja</label>
+                        <input class="form-control" formControlName="trajanjeDani" id="trajanje" required pattern="^[0-9]*$" type="text">
+                        <div class="text-danger" *ngIf="form.get('trajanjeDani')!.touched && !form.get('trajanjeDani')!.valid">
+                          <div *ngIf="form.get('trajanjeDani')!.errors?.['required']">Upis trajanja je obavezan!</div>
+                          <div *ngIf="form.get('trajanjeDani')!.errors?.['pattern']">Trajanje je izrazeno u broju dana!</div>
+                        </div>
                       </div>
 
                       <div class="form-group col-md-6 col-sm-12">
-                        <label for="birthday">Pocetak</label>
-                        <input class="form-control" formControlName="datumPocetka" type="date" id="birthday" name="birthday">
+                        <label for="datumPoc">Pocetak</label>
+                        <input class="form-control" formControlName="datumPocetka" type="date" id="datumPoc">
                       </div>
 
                       <div class="form-group col-md-6 col-sm-12">
                         <label>Mjesto</label>
-                        <select id='mjesta' name='mjesta' class="form-control" formControlName="mjesto">
+                        <select class="form-control" formControlName="mjesto" >
                           <option *ngFor="let item of mjesta" [ngValue]="item" >
                             {{item.naziv}}
                           </option>

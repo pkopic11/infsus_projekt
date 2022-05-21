@@ -20,16 +20,17 @@
                         <div class="input-group">
                           <div class="form-group col-md-6 col-sm-12">
                             <label for="text">Naziv događaja</label>
-                            <input class="form-control" ngModel name="naziv" #naziv="ngModel" id="text" required minlength="5" type="text">
+                            <input class="form-control" ngModel name="naziv" #naziv="ngModel" id="text" required minlength="5" pattern="^[A-Za-z0-9_ ]*$" type="text">
                             <div class="text-danger" *ngIf="naziv.touched && !naziv.valid">
                               <div *ngIf="naziv.errors?.['required']">Naziv je obavezan!</div>
                               <div *ngIf="naziv.errors?.['minlength']">Naziv mora imati barem 5 znakova!</div>
+                              <div *ngIf="naziv.errors?.['pattern']">Naziv ne smije imati simbole</div>
                             </div>
                           </div>
 
                           <div class="form-group col-md-6 col-sm-12">
-                            <label for="expression">Trajanje događaja</label>
-                            <input class="form-control" ngModel name="trajanjeDani" #trajanjeDani="ngModel" id="expression" required pattern="^[0-9]*$" type="text">
+                            <label for="dogadaj">Trajanje događaja</label>
+                            <input class="form-control" ngModel name="trajanjeDani" #trajanjeDani="ngModel" id="dogadaj" required pattern="^[0-9]*$" type="text">
                             <div class="text-danger" *ngIf="trajanjeDani.touched && !trajanjeDani.valid">
                               <div *ngIf="trajanjeDani.errors?.['required']">Upis trajanja je obavezan!</div>
                               <div *ngIf="trajanjeDani.errors?.['pattern']">Trajanje je izrazeno u broju dana!</div>
@@ -37,8 +38,8 @@
                           </div>
 
                           <div class="form-group col-md-6 col-sm-12">
-                            <label for="birthday">Pocetak</label>
-                            <input class="form-control" ngModel name="datumPocetka" #datumPocetka="ngModel" type="date" id="birthday" name="birthday" required>
+                            <label for="datumPoc">Pocetak</label>
+                            <input class="form-control" ngModel name="datumPocetka" #datumPocetka="ngModel" type="date" id="datumPoc" required>
                             <div class="text-danger" *ngIf="datumPocetka.touched">
                               <div *ngIf="datumPocetka.errors?.['required']">Odabir datuma pocetka je obavezan!</div>
                             </div>
@@ -46,12 +47,23 @@
 
                           <div class="form-group col-md-6 col-sm-12">
                             <label>Mjesto</label>
-                            <select id='mjesta' name='mjesta' class="form-control" [(ngModel)]="odabranoMjesto">
+                            <select ngModel name="mjesto" #mjesto="ngModel" class="form-control" >
+                              <option value="" selected disabled hidden>Odaberi mjesto</option>
                               <option *ngFor="let item of mjesta" [ngValue]="item" >
                                 {{item.naziv}}
                               </option>
                             </select>
                           </div>
+
+                          <div class="form-group col-md-6 col-sm-12">
+                            <label for="ulaznice">Broj ulaznica</label>
+                            <input class="form-control" ngModel name="brojUlaznica" #brojUlaznica="ngModel" id="ulaznice" required pattern="^[0-9]*$" type="text">
+                            <div class="text-danger" *ngIf="brojUlaznica.touched && !brojUlaznica.valid">
+                              <div *ngIf="brojUlaznica.errors?.['required']">Upis broja ulaznica je obavezan!</div>
+                              <div *ngIf="brojUlaznica.errors?.['pattern']">Broj ulaznica mora biti broj!</div>
+                            </div>
+                          </div>
+
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                           <button class="btn btn-success col-12 col-md-3" type="submit">Kreiraj</button>

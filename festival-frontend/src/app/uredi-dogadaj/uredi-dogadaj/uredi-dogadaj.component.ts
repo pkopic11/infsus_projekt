@@ -49,7 +49,9 @@ export class UrediDogadajComponent implements OnInit {
           this.form.controls['trajanjeDani'].setValue(result.trajanjeDani);
           this.form.controls['brojUlaznica'].setValue(result.brojUlaznica);
           this.form.controls['datumPocetka'].setValue(result.datumPocetka);
-          this.form.controls['mjesto'].setValue(this.odabranoMjesto);
+          this.form.controls['mjesto'].setValue(result.mjesto);
+          this.odabranoMjesto = result.mjesto
+          console.log(result.mjesto)
         });
       }
     });
@@ -59,7 +61,9 @@ export class UrediDogadajComponent implements OnInit {
     console.log(this.form.getRawValue())
     this.dogadajService.updateDogadaj(this.form.getRawValue()).subscribe();
     this.form.reset();
-    this.router.navigate(['']);
+    this.router.navigate(['']).then(() => {
+      window.location.reload();
+    });
   }
 
 }
