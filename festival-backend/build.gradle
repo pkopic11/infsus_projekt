@@ -2,6 +2,7 @@ buildscript {
     ext {
         springValidation = '2.6.6'
         modelMapper = '3.1.0'
+        camunda = '7.17.0'
     }
 }
 
@@ -24,6 +25,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.modelmapper:modelmapper:${modelMapper}")
     implementation("org.springframework.boot:spring-boot-starter-validation:${springValidation}")
+    implementation("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:${camunda}")
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
