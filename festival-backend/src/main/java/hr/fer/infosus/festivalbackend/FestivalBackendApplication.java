@@ -20,6 +20,6 @@ public class FestivalBackendApplication {
 
     @EventListener
     private void processPostDeploy(PostDeleteEvent event){
-        runtimeService.startProcessInstanceByKey("loanApproval");
+        runtimeService.startProcessInstanceByKey("uredivanjeDogadaja");
     }
 }
