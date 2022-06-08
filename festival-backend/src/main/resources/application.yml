@@ -12,8 +12,8 @@ spring:
     show-sql: false
 camunda.bpm:
   admin-user:
-    id: demo
+    id: manager
     password: demo
-    firstName: Demo
+    firstName: Manager
   filter:
     create: All tasks
